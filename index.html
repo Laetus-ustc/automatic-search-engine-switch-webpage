@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CH">
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="搜索引擎, 百度, 谷歌, Google">
+    <meta name="Description" content="根据网络情况自动选择合适的搜索引擎">
+    <title>搜索</title>
+    <style type="text/css">
+        * {
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+        .root {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -100px 0 0 -300px;
+            width: 600px;
+            height: 200px;
+        }
+        .SEPic {
+            margin: 0 auto;
+            width: 272px;
+            height: 92px;
+        }
+        .searchBar {
+            margin: auto;
+            margin-top: 20px;
+            width: 500px;
+            height: 35px;
+        }
+        .textInputBar {
+            float: left;
+            width: 423px;
+            height: 33px;
+            border: 1px solid black;
+        }
+        .searchButton {
+            float: left;
+            width: 75px;
+            height: 35px;
+            color: white;
+            background-color: rgb(68, 163, 241);
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+    <div class="SEPic"><a><img src="./loading.svg" height="92px" class="SEPic" id="titlePic"></a></div>
+    
+    <div class="searchBar"><form action="https://baidu.com/s?" autocomplete="off" id="formAction">
+        <input type="text" value class="textInputBar" name="wd" autofocus id="textInputBar">
+        <input type="submit" class="searchButton">
+    </form></div>
+    <img src="https://www.baidu.com/img/flexible/logo/pc/result.png" height="0px" id="baiduPic" onerror="baiduError()" onload="baiduLoad()">
+    <img src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" height="0px" id="googlePic" onload="googleLoad()">
+    </div>
+    <script type="text/javascript">
+        function baiduError() {
+            document.getElementById("titlePic").src="./netError.svg";
+        }
+        function baiduLoad() {
+            document.getElementById("titlePic").src="https://www.baidu.com/img/flexible/logo/pc/result.png";
+        }
+        function googleLoad() {
+            document.getElementById("titlePic").src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png";
+            document.getElementById("formAction").action = "https://www.google.com.hk/search?";
+            document.getElementById("textInputBar").name = "q";
+        }
+    </script>
+</body>
+</html>

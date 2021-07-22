@@ -2,9 +2,10 @@
 <html>
 <head lang="zh-CH">
     <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
     <meta name="Keywords" content="搜索引擎, 百度, 谷歌, Google">
     <meta name="Description" content="根据网络情况自动选择合适的搜索引擎">
-    <title>搜索</title>
+    <title id="title">搜索</title>
     <style type="text/css">
         * {
             border: 0;
@@ -27,7 +28,7 @@
         .searchBar {
             margin: auto;
             margin-top: 20px;
-            width: 500px;
+            width: 525px;
             height: 35px;
         }
         .textInputBar {
@@ -38,10 +39,10 @@
         }
         .searchButton {
             float: left;
-            width: 75px;
+            width: 100px;
             height: 35px;
             color: white;
-            background-color: rgb(68, 163, 241);
+            background-color: #2d85f0;
         }
     </style>
 </head>
@@ -51,7 +52,7 @@
     
     <div class="searchBar"><form action="https://baidu.com/s?" autocomplete="off" id="formAction">
         <input type="text" value class="textInputBar" name="wd" autofocus id="textInputBar">
-        <input type="submit" class="searchButton">
+        <input type="submit" class="searchButton" id="searchButton" value="搜索">
     </form></div>
     <img src="https://www.baidu.com/img/flexible/logo/pc/result.png" height="0px" id="baiduPic" onerror="baiduError()" onload="baiduLoad()">
     <img src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" height="0px" id="googlePic" onload="googleLoad()">
@@ -62,11 +63,13 @@
         }
         function baiduLoad() {
             document.getElementById("titlePic").src="https://www.baidu.com/img/flexible/logo/pc/result.png";
+            document.getElementById("title").innerText="百度一下";
         }
         function googleLoad() {
             document.getElementById("titlePic").src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png";
             document.getElementById("formAction").action = "https://www.google.com.hk/search?";
             document.getElementById("textInputBar").name = "q";
+            document.getElementById("title").innerText="Google 搜索";
         }
     </script>
 </body>

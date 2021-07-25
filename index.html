@@ -6,6 +6,7 @@
     <meta name="Keywords" content="搜索引擎, 百度, 谷歌, Google">
     <meta name="Description" content="根据网络情况自动选择合适的搜索引擎">
     <title id="title">搜索</title>
+    <link rel="icon" href="" id="favicon">
     <style type="text/css">
         * {
             border: 0;
@@ -64,12 +65,14 @@
         function baiduLoad() {
             document.getElementById("titlePic").src="https://www.baidu.com/img/flexible/logo/pc/result.png";
             document.getElementById("title").innerText="百度一下";
+            document.getElementById("favicon").href="https://www.baidu.com/img/baidu_85beaf5496f291521eb75ba38eacbd87.svg";
         }
         function googleLoad() {
             document.getElementById("titlePic").src="https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png";
             document.getElementById("formAction").action = "https://www.google.com.hk/search?";
             document.getElementById("textInputBar").name = "q";
             document.getElementById("title").innerText="Google 搜索";
+            document.getElementById("favicon").href="https://www.google.com/favicon.ico";
         }
     </script>
 </body>
